@@ -1,15 +1,20 @@
-# XBOX ONE ROS JOY TELEOP
+# LOGITECH F710 ROS JOY TELEOP
 
 ## This is node for teleop robot with ros 
 
 ## Install 
 
 
-
 ```
 sudo apt install -y ros-<distro>-joy
-sudo git clone https://github.com/paroj/xpad.git /usr/src/xpad-0.4
-sudo dkms install -m xpad -v 0.4
+```
+
+Then clone project to your workspace and compile with catkin
+
+```
+cd ~/catkin_ws/src
+git clone https://github.com/adamkrawczyk/logitech_f710_joy_ros.git
+cd .. && catkin_make
 ```
 
 Then connect joy via nano reciver and !!!`DirectInput Mode`!!! (`D` letter at the front of pad).
