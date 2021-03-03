@@ -41,25 +41,35 @@ void TeleopJoy::joyCallback(const sensor_msgs::Joy::ConstPtr &joy)
 {
     geometry_msgs::Twist twist;
 
-    if(joy->buttons[4] == 1){
-        //slow 
-        lin_x_scale_ = 0.1;
-        lin_y_scale_ = 0.1;
-        ang_z_scale_ = 0.1;
-    }
-    else if(joy->buttons[5] == 1)
-    {   
-        //fast
-        lin_x_scale_ = 1.0;
-        lin_y_scale_ = 1.0;
-        ang_z_scale_ = 1.0;
+    if (joy->buttons[4] == 1)
+    {
+        if (joy->buttons[5] == 1)
+        {
+            //slow
+            lin_x_scale_ = 0.1;
+            lin_y_scale_ = 0.1;
+            ang_z_scale_ = 0.1;
+        }
+        else if (joy->buttons[7] == 1)
+        {
+            //fast
+            lin_x_scale_ = 1.0;
+            lin_y_scale_ = 1.0;
+            ang_z_scale_ = 1.0;
+        }
+        else
+        {
+            //normal
+            lin_x_scale_ = 0.5;
+            lin_y_scale_ = 0.5;
+            ang_z_scale_ = 0.5;
+        }
     }
     else
     {
-        //normal
-        lin_x_scale_ = 0.5;
-        lin_y_scale_ = 0.5;
-        ang_z_scale_ = 0.5;
+        lin_x_scale_ = 0.0;
+        lin_y_scale_ = 0.0;
+        ang_z_scale_ = 0.0;
     }
 
     twist.linear.x = lin_x_scale_ * joy->axes[linear_x_];

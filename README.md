@@ -37,10 +37,12 @@ roslaunch logitech_f710_joy_ros joy_teleop.launch
 
 Move robot:
 
+To enable driving you must hold `LB` Key.
+
 Move `X` direction and rotate `Th` left axis.
 
 Move in Y direction right axis. 
 
-Parking mode hold `LB` Key.
+Parking mode hold `RB` Key.
 
-Turbo hold `RB` key.
+Turbo hold `RT` key.
