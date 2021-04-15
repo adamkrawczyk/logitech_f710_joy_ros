@@ -86,7 +86,7 @@ void TeleopJoy::joyCallback(const sensor_msgs::Joy::ConstPtr &joy)
 int main(int argc, char **argv)
 {
     ROS_INFO("Init Node");
-    ros::init(argc, argv, "robot_teleop");
+    ros::init(argc, argv, "f710_teleop_joy_node");
     TeleopJoy teleop_joy;
     ros::spin();
 }
